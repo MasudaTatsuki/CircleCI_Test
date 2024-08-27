@@ -1,8 +1,15 @@
-version: 2.1
-
+version: 2
 jobs:
   build:
     docker:
-      - image: cimg/base:2022.04
+    - image: cimg/node:lts
     steps:
-      - run: echo "start circleCI!"
+    - run:
+        name: Install dependencies
+        command: yarn install
+    - run:
+        name: Change to the correct directory
+        command: cd /Users/masuda_tatsuki/Desktop/CircleCI_Test/
+    - run:
+        name: Run tests
+        command: yarn test
