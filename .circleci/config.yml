@@ -3,7 +3,10 @@ jobs:
   build:
     docker:
     - image: cimg/node:lts
+    working_directory: /home/circleci/project
     steps:
+    - checkout:
+        path: /home/circleci/project
     - run:
         name: Install dependencies
         command: yarn install
